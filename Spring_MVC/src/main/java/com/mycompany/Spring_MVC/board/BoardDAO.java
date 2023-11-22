@@ -29,7 +29,12 @@ public class BoardDAO {
     }
 
     public void updateBoard(BoardVO vo) {
-        String UDATE_BOARD = "update webboard set title=?, content=? where seq=?";
-        jdbcTemplate.update(UDATE_BOARD, vo.getTitle(), vo.getContent(), vo.getSeq());
+        String UPDATE_BOARD = "update webboard set title=?, content=? where seq=?";
+        jdbcTemplate.update(UPDATE_BOARD, vo.getTitle(), vo.getContent(), vo.getSeq());
+    }
+
+    public void deleteBoard(BoardVO vo) {
+        String DELETE_BOARD = "delete from webboard where seq=?";
+        jdbcTemplate.update(DELETE_BOARD, vo.getSeq());
     }
 }
